@@ -3,11 +3,11 @@ $email = $_POST['email'];
     $password = $_POST['password'];
 
     // Database connection
-    $conn = new mysqli('localhost', 'root', '', 'db1');
+    $conn = new mysqli('localhost', 'root', 'Rohit45@', '3307')
     if ($conn->connect_error) {
         die("Connection Failed : " . $conn->connect_error);
     } else {
-        $stmt = $conn->prepare("SELECT * FROM registration WHERE email = ?");
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt_result = $stmt->get_result();
